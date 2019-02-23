@@ -1,0 +1,54 @@
+
+@id 16777252
+@name   'ts29272_s13'
+@prefix 'ts29272_s13'
+@vendor 10415 3GPP
+
+@inherits diameter_gen_base_rfc6733
+  Session-Id
+  Experimental-Result
+  Vendor-Specific-Application-Id
+  Route-Record
+  Proxy-Info
+  Failed-AVP
+  Destination-Realm
+  User-Name
+  Origin-Host
+  Auth-Session-State
+  Origin-Realm
+  Destination-Host
+  Result-Code
+
+@inherits 3gpp
+
+@messages
+
+    ECR ::= < Diameter Header: 324, REQ, PXY >
+              < Session-Id >
+              { Auth-Session-State }
+              { Origin-Host }
+              { Origin-Realm }
+              { Destination-Realm }
+              { Terminal-Information }
+              [ DRMP ]
+              [ Vendor-Specific-Application-Id ]
+              [ Destination-Host ]
+              [ User-Name ]
+        *     [ AVP ]
+        *     [ Proxy-Info ]
+        *     [ Route-Record ]
+
+    ECA ::= < Diameter Header: 324, PXY >
+              < Session-Id >
+              { Auth-Session-State }
+              { Origin-Host }
+              { Origin-Realm }
+              [ DRMP ]
+              [ Vendor-Specific-Application-Id ]
+              [ Result-Code ]
+              [ Experimental-Result ]
+              [ Equipment-Status ]
+        *     [ AVP ]
+        *     [ Failed-AVP ]
+        *     [ Proxy-Info ]
+        *     [ Route-Record ]

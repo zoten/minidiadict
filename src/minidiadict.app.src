@@ -1,0 +1,11 @@
+{application, minidiadict,
+ [{description, "Mini Diameter dictionary"}
+ ,{vsn, "1.0.0"}
+ ,{registered, []}
+ ,{applications,
+    [kernel, stdlib]}
+ ,{env,[]}
+ ,{modules, ['3gpp',
+             ts29272_s13
+            ]}
+ ]}.

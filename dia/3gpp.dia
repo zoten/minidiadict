@@ -1,0 +1,72 @@
+;;
+;; %CopyrightBegin%
+;;
+;; Copyright Athonet SRL 2014. All Rights Reserved.
+;; Updated to 3GPP TS 29.230 version 12.7.0
+;; %CopyrightEnd%
+;;
+;; ===========================================================================
+
+@name   '3gpp'
+@prefix '3gpp'
+
+@inherits diameter_gen_base_rfc6733
+    Vendor-Id
+    Auth-Application-Id
+    User-Name
+    Acct-Application-Id
+    Vendor-Specific-Application-Id
+
+;; ===========================================================================
+
+@vendor 10415 3GPP
+
+;; ===========================================================================
+
+@avp_types
+
+DRMP                                               301  Enumerated    V
+Terminal-Information                               1401 Grouped       MV
+IMEI                                               1402 UTF8String    MV
+Software-Version                                   1403 UTF8String    MV
+Equipment-Status                                   1445 Enumerated    MV
+3GPP2-MEID                                         1471 OctetString   MV
+
+;; ===========================================================================
+
+@grouped
+
+Terminal-Information ::= <AVP Header: 1401 >
+ [IMEI]
+ [3GPP2-MEID]
+ [Software-Version]
+ *[AVP]
+
+;; ===========================================================================
+
+;; 301
+@enum DRMP
+ PRIORITY_0  0
+ PRIORITY_1  1
+ PRIORITY_2  2
+ PRIORITY_3  3
+ PRIORITY_4  4
+ PRIORITY_5  5
+ PRIORITY_6  6
+ PRIORITY_7  7
+ PRIORITY_8  8
+ PRIORITY_9  9
+ PRIORITY_10 10
+ PRIORITY_11 11
+ PRIORITY_12 12
+ PRIORITY_13 13
+ PRIORITY_14 14
+ PRIORITY_15 15
+
+;; 1445
+@enum Equipment-Status
+ WHITELISTED 0
+ BLACKLISTED 1
+ GREYLISTED  2
+
+@end
